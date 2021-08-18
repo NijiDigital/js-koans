@@ -39,5 +39,3 @@ const expectExtension = {
 }
 
 expect.extend(expectExtension)
-
-jest.setTimeout(10000)
