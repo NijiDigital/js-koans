@@ -49,8 +49,16 @@ Other scripts :
 
 The test sources have group tags decorations, so you can execute tests that match a specific tag.
 
-Example: execute tests of group "easy" and "sync"
+Examples:
 
-```shell
-$ npm test -- --group=easy --group=sync
-```
+- execute tests of group "easy" and "sync"
+
+  ```shell
+  $ npm test -- --group=easy --group=sync
+  ```
+
+- execute only the "factorial" test
+
+  ```shell
+  $ npm test -- --group=sync -t="factorial"
+  ```
