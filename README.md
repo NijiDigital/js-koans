@@ -52,5 +52,5 @@ The test sources have group tags decorations, so you can execute tests that matc
 Example: execute tests of group "easy" and "sync"
 
 ```shell
-$ npmr test -- --group=easy --group=sync
+$ npm test -- --group=easy --group=sync
 ```
