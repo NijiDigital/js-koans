@@ -1,0 +1,40 @@
+{
+  "name": "js-koan",
+  "version": "1.0.0",
+  "description": "JavaScript koans to improve programmer skills",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel -d ../built --delete-dir-on-start --relative src",
+    "clean": "rimraf built dist",
+    "lint": "eslint src",
+    "prettier": "prettier -c 'src/**/*.js'",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "validate": "npm run lint && npm test"
+  },
+  "author": "Olivier Penhoat <openhoat@gmail.com>",
+  "license": "ISC",
+  "engines": {
+    "node": "^14.17.0",
+    "npm": ">=7.18.1"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "nanoid": "3.1.25"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.14.8",
+    "@babel/core": "7.15.0",
+    "@babel/preset-env": "7.15.0",
+    "@types/jest": "27.0.1",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "got": "11.8.2",
+    "jest": "27.0.6",
+    "jest-runner-groups": "2.1.0",
+    "prettier": "2.3.2",
+    "rimraf": "3.0.2"
+  }
+}

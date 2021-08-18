@@ -1,0 +1,36 @@
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module
+env:
+  es6: true
+extends:
+  - prettier
+plugins:
+  - prettier
+  - simple-import-sort
+rules:
+  arrow-parens:
+    - off
+    - always
+  brace-style:
+    - off
+    - off
+  eol-last: off
+  linebreak-style: off
+  max-len: off
+  new-parens: off
+  newline-per-chained-call: off
+  no-irregular-whitespace: off
+  no-trailing-spaces: off
+  prettier/prettier: error
+  quotes: off
+  quote-props: off
+  simple-import-sort/imports: error
+  simple-import-sort/exports: error
+  sort-imports: off
+  sort-keys: error
+  space-before-function-paren: off
+  space-in-parens:
+    - off
+    - never
+root: true
