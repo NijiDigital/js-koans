@@ -10,11 +10,11 @@ The way it works is very simple, all you have to do is to solve the failing test
 
 Go from :
 
-![Test FAIL](./assets/js-koans-test-fail.gif | height=200)
+![Test FAIL](./assets/js-koans-test-fail.gif | width=200)
 
 To :
 
-![Test PASS](./assets/js-koans-test-pass.gif | height=200)
+![Test PASS](./assets/js-koans-test-pass.gif | width=200)
 
 ## Usage
 
