@@ -8,11 +8,11 @@ The way it works is very simple, all you have to do is to solve the failing test
 
 ## Story
 
-Go from :
+### Before you solved :
 
 <img src="./assets/js-koans-test-fail.gif" alt="Test FAIL" width="600">
 
-To :
+### After you solved :
 
 <img src="./assets/js-koans-test-pass.gif" alt="Test PASS" width="600">
 
