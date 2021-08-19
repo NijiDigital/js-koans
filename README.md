@@ -10,11 +10,11 @@ The way it works is very simple, all you have to do is to solve the failing test
 
 Go from :
 
-<script id="asciicast-BHv25ejuenl3vdistWLTQNjN6" src="https://asciinema.org/a/BHv25ejuenl3vdistWLTQNjN6.js" async></script>
+![Test FAIL](./assets/js-koans-test-fail.gif | height=200)
 
 To :
 
-<script id="asciicast-WDDKHX2o5bWO1L6yRdaMRERHE" src="https://asciinema.org/a/WDDKHX2o5bWO1L6yRdaMRERHE.js" async></script>
+![Test PASS](./assets/js-koans-test-pass.gif | height=200)
 
 ## Usage
 
