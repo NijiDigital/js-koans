@@ -8,10 +8,8 @@ import { basename } from 'path'
 const modName = basename(__filename, '.test.js')
 
 describe('delay', () => {
-  let Chronometer
   let delay
   beforeAll(async () => {
-    ;({ Chronometer } = await import('../main/chronometer'))
     ;({ default: delay } = await import(`../main/${modName}`))
     expect(typeof delay).toBe('function')
     jest.useFakeTimers()
@@ -24,17 +22,16 @@ describe('delay', () => {
   })
   test('should wait for 20ms and resolve to true', async () => {
     // Given
-    const chronometer = new Chronometer()
-    chronometer.start()
+    const start = Number(process.hrtime.bigint())
     const durationMs = 20
     // When
     const promise = delay(durationMs, true)
     jest.advanceTimersByTime(durationMs)
     const result = await promise
     // Then
-    chronometer.stop()
+    const elapsedMs = (Number(process.hrtime.bigint()) - start) / 1e6
     jest.runOnlyPendingTimers()
     expect(result).toBe(true)
-    expect(chronometer.elapsedMs).toBeGreaterThanOrEqual(durationMs)
+    expect(elapsedMs).toBeGreaterThanOrEqual(durationMs)
   })
 })

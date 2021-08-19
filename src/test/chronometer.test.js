@@ -31,7 +31,7 @@ describe('chronometer', () => {
       chronometer.stop()
       jest.runOnlyPendingTimers()
       // Then
-      expect(chronometer.elapsedMs).toBe(durationMs)
+      expect(chronometer).toHaveProperty('elapsedMs', durationMs)
     },
   )
 })

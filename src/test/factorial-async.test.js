@@ -8,10 +8,8 @@ import { basename } from 'path'
 const modName = basename(__filename, '.test.js')
 
 describe('factorial-async', () => {
-  let Chronometer
   let factorial
   beforeAll(async () => {
-    ;({ Chronometer } = await import('../main/chronometer'))
     ;({ default: factorial } = await import(`../main/${modName}`))
     expect(typeof factorial).toBe('function')
     jest.useFakeTimers()
@@ -41,17 +39,16 @@ describe('factorial-async', () => {
     [1, 1],
   ])('should wait for 20ms and resolve to %i given %i', async (expectedResult, x) => {
     // Given
-    const chronometer = new Chronometer()
-    chronometer.start()
+    const start = Number(process.hrtime.bigint())
     const durationMs = 20
     // When
     const promise = factorial(x)
     jest.advanceTimersByTime(durationMs)
     const result = await promise
     // Then
-    chronometer.stop()
+    const elapsedMs = (Number(process.hrtime.bigint()) - start) / 1e6
     jest.runOnlyPendingTimers()
     expect(result).toBe(expectedResult)
-    expect(chronometer.elapsedMs).toBeGreaterThanOrEqual(durationMs)
+    expect(elapsedMs).toBeGreaterThanOrEqual(durationMs)
   })
 })
