@@ -2,7 +2,7 @@ import { basename } from 'path'
 
 /**
  * @group sync
- * @group easy
+ * @group supereasy
  */
 
 const modName = basename(__filename, '.test.js')

@@ -1,6 +1,6 @@
 /**
  * @group sync
- * @group easy
+ * @group supereasy
  */
 
 import { basename } from 'path'
