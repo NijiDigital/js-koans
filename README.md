@@ -78,3 +78,5 @@ Examples:
   ```shell
   $ npm test -- --group=supereasy --verbose
   ```
+
+Enjoy!
