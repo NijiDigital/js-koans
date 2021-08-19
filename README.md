@@ -62,3 +62,9 @@ Examples:
   ```shell
   $ npm test -- --group=sync -t="factorial"
   ```
+
+- execute only the "supereasy" tests
+
+  ```shell
+  $ npm test -- --group=supereasy
+  ```
