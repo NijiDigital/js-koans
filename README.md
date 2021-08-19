@@ -10,11 +10,11 @@ The way it works is very simple, all you have to do is to solve the failing test
 
 Go from :
 
-[![asciicast](https://asciinema.org/a/BHv25ejuenl3vdistWLTQNjN6.svg)](https://asciinema.org/a/BHv25ejuenl3vdistWLTQNjN6)
+<script id="asciicast-BHv25ejuenl3vdistWLTQNjN6" src="https://asciinema.org/a/BHv25ejuenl3vdistWLTQNjN6.js" async></script>
 
 To :
 
-[![asciicast](https://asciinema.org/a/WDDKHX2o5bWO1L6yRdaMRERHE.svg)](https://asciinema.org/a/WDDKHX2o5bWO1L6yRdaMRERHE)
+<script id="asciicast-WDDKHX2o5bWO1L6yRdaMRERHE" src="https://asciinema.org/a/WDDKHX2o5bWO1L6yRdaMRERHE.js" async></script>
 
 ## Usage
 
