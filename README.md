@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/openhoat/js-koans-solutions.png?branch=master)](https://travis-ci.org/openhoat/js-koans-solutions)
+[![Build Status](https://app.travis-ci.com/openhoat/js-koans-solutions.svg?token=Epg1qqwcpkp2akpnm3QK&branch=master)](https://app.travis-ci.com/openhoat/js-koans-solutions)
 
 # JavaScript Koans
 
