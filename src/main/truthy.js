@@ -2,4 +2,8 @@ const getAllTruthies = () => {
   throw new Error('Please FIXME')
 }
 
-export { getAllTruthies }
+const getAllFalsies = () => {
+  throw new Error('Please FIXME')
+}
+
+export { getAllFalsies, getAllTruthies }
