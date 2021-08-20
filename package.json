@@ -16,7 +16,7 @@
   "license": "ISC",
   "engines": {
     "node": "^14.17.0",
-    "npm": ">=7.18.1"
+    "npm": ">=7.19.0"
   },
   "dependencies": {
     "express": "4.17.1",
