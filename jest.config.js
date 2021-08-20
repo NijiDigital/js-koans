@@ -12,7 +12,7 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
   rootDir: baseDir,
   runner: 'groups',
-  setupFilesAfterEnv: [resolve(baseDir, 'src/jest-custom.js')],
+  setupFilesAfterEnv: [resolve(baseDir, 'jest-custom.js')],
   testEnvironment: 'node',
   testMatch: [join(baseDir, 'src/**/*.test.js')],
   verbose: false,
