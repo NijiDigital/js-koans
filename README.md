@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/openhoat/js-koans-solutions.png?branch=master)](https://travis-ci.org/openhoat/js-koans-solutions)
+
 # JavaScript Koans
 
 The goal of this project is to improve skills of JavaScript programmers.
