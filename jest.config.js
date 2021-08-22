@@ -15,5 +15,5 @@ module.exports = {
   setupFilesAfterEnv: [resolve(baseDir, 'jest-custom.js')],
   testEnvironment: 'node',
   testMatch: [join(baseDir, 'src/**/*.test.js')],
-  verbose: false,
+  testSequencer: join(baseDir, 'test-sequencer.js'),
 }
