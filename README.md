@@ -40,6 +40,8 @@ Or simply execute tests:
 $ npm test
 ```
 
+By default, tests are executed through an ordered sequence specified in [test-sequence.json](https://raw.githubusercontent.com/openhoat/js-koans/master/test-sequence.json).
+
 Other scripts:
 
 - build : transpile the sources from ./src to ./built directory
@@ -63,7 +65,7 @@ The test sources have group tags decorations, so you can execute tests that matc
 
 Examples:
 
-- execute tests of group "easy" and "sync"
+- execute tests of group "easy" and tests of group "sync"
 
   ```shell
   $ npm test -- --group=easy --group=sync
