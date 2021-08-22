@@ -9,6 +9,7 @@
     "lint": "eslint src",
     "prettier": "prettier -c 'src/**/*.js'",
     "test": "jest -i",
+    "test:ci": "jest",
     "test:watch": "jest -i --watchAll",
     "validate": "npm run lint && npm test"
   },
