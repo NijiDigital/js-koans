@@ -56,6 +56,7 @@ Other scripts:
 
 - Jest is used to implement and run the tests.
 - Babel is used seamlessly to support es2020
+- Solutions are not part of this project, but in another private one
 
 ## Tips and tricks
 
@@ -82,10 +83,5 @@ Examples:
   ```shell
   $ npm test -- --group=supereasy --verbose
   ```
-
-## Solutions
-
-Suggested solutions are not part of this project, but in another private one, 
-if you need to get them feel free to send me a [request email](mailto:openhoat@gmail.com?subject=%5BJS%20Koans%5D%20-%20Solution%20request)
 
 Enjoy!
