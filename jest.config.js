@@ -3,6 +3,7 @@ const { join, resolve } = require('path')
 const baseDir = __dirname
 
 module.exports = {
+  bail: true,
   collectCoverageFrom: ['src/**/*.js'],
   coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: ['.test.js'],

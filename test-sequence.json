@@ -18,5 +18,6 @@
   "users-transform-utils",
   "roman-converter",
   "factorial-async",
-  "web-server"
+  "web-server",
+  "ten-pin-bowling"
 ]
