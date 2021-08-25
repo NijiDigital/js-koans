@@ -14,6 +14,7 @@
   "each-async",
   "nearest-value",
   "palindrome",
+  "pangram",
   "second-cheapest",
   "users-transform-utils",
   "roman-converter",
