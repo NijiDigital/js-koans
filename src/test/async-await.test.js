@@ -38,14 +38,14 @@ describe('async await', () => {
     await expect(promise).toBeRejectedWith(error)
     jest.runOnlyPendingTimers()
   })
-  test('should throw an error synchronously and log it', (done) => {
+  test('should throw an error synchronously and log it', async () => {
     // When
     const error = new Error('oops')
     const log = jest.fn()
     const promise = doAsync(undefined, error, true, log)
     // Then
     expect(log).toHaveBeenNthCalledWith(1, error.message)
-    expect(promise).toBeRejectedWith(error).then(done)
+    await expect(promise).toBeRejectedWith(error)
   })
   test('should reject after 1s and log the given error', async () => {
     // When
