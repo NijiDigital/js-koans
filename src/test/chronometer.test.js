@@ -24,7 +24,7 @@ describe('chronometer', () => {
   })
   test.each([[20], [5000]])(
     'should start a new chronometer, wait %i, stop it, and check elapsed time',
-    async (durationMs) => {
+    (durationMs) => {
       // When
       chronometer.start()
       jest.advanceTimersByTime(durationMs)
