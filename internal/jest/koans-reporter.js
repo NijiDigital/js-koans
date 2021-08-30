@@ -52,7 +52,7 @@ class KoansReporter extends BaseReporter {
   onRunComplete(contexts, aggregatedResults) {
     this.log(
       chalk.keyword('orange')(
-        `\nTotal score: ${chalk.bold(Math.round((this.score * 100) / this.maxScore))}%\n`,
+        `\nTotal score: ${chalk.bold(Math.round((this.score * 100) / this.maxScore))} %\n`,
       ),
     )
     return super.onRunComplete(contexts, aggregatedResults)
