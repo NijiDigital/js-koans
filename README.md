@@ -12,11 +12,11 @@ The way it works is very simple, all you have to do is to solve the failing test
 
 ### Before you solved :
 
-<script id="asciicast-hgo8MXS8bh0pCq8Ee4heN3zK5" src="https://asciinema.org/a/hgo8MXS8bh0pCq8Ee4heN3zK5.js" async></script>
+<img src="./assets/js-koans-test-fail.svg" alt="Test FAIL" width="600">
 
 ### After you solved :
 
-<script id="asciicast-4UjOOJCYqSCgwsUpkuJD78F2J" src="https://asciinema.org/a/4UjOOJCYqSCgwsUpkuJD78F2J.js" async></script>
+<img src="./assets/js-koans-test-pass.svg" alt="Test FAIL" width="600">
 
 ## Usage
 
