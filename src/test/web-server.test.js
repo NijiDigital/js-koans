@@ -1,6 +1,6 @@
 /**
- * @group async
- * @group medium
+ * @difficultyLevel 3
+ * @tags async
  */
 
 import got from 'got'

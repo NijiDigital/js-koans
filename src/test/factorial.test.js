@@ -1,6 +1,6 @@
 /**
- * @group sync
- * @group supereasy
+ * @difficultyLevel 1
+ * @tags sync
  */
 
 import { basename } from 'path'

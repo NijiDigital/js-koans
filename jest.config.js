@@ -3,18 +3,18 @@ const { join, resolve } = require('path')
 const baseDir = __dirname
 
 module.exports = {
-  bail: true,
   collectCoverageFrom: ['src/**/*.js'],
   coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: ['.test.js'],
   coverageReporters: ['text', 'lcov', 'html'],
-  globalSetup: join(baseDir, 'jest-global-setup.js'),
+  globalSetup: join(baseDir, 'internal/jest/jest-global-setup.js'),
   moduleFileExtensions: ['js', 'json'],
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
+  reporters: ['<rootDir>/internal/jest/koans-reporter.js'],
   rootDir: baseDir,
-  runner: 'groups',
-  setupFilesAfterEnv: [resolve(baseDir, 'jest-custom.js')],
+  runner: '<rootDir>/internal/jest/koans-runner',
+  setupFilesAfterEnv: [resolve(baseDir, 'internal/jest/jest-custom.js')],
   testEnvironment: 'node',
   testMatch: [join(baseDir, 'src/**/*.test.js')],
-  testSequencer: join(baseDir, 'test-sequencer.js'),
+  testSequencer: join(baseDir, 'internal/jest/test-sequencer.js'),
 }

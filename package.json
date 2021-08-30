@@ -8,10 +8,10 @@
     "clean": "rimraf built dist",
     "lint": "eslint src",
     "prettier": "prettier -c 'src/**/*.js'",
-    "test": "jest -i",
-    "test:ci": "jest",
+    "test": "jest -i --reporters='default'",
     "test:watch": "jest -i --watchAll",
-    "validate": "npm run lint && npm test"
+    "play": "jest -i",
+    "validate": "npm run build && npm run lint && npm run test"
   },
   "author": "Olivier Penhoat <openhoat@gmail.com>",
   "license": "ISC",
@@ -27,15 +27,18 @@
     "@babel/cli": "7.14.8",
     "@babel/core": "7.15.0",
     "@babel/preset-env": "7.15.0",
+    "@jest/reporters": "27.1.0",
     "@jest/test-sequencer": "27.0.6",
     "@types/jest": "27.0.1",
+    "chalk": "4.1.2",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "got": "11.8.2",
     "jest": "27.0.6",
-    "jest-runner-groups": "2.1.0",
+    "jest-docblock": "27.0.6",
+    "jest-runner": "27.1.0",
     "prettier": "2.3.2",
     "rimraf": "3.0.2"
   }

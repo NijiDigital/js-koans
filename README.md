@@ -12,35 +12,33 @@ The way it works is very simple, all you have to do is to solve the failing test
 
 ### Before you solved :
 
-<img src="./assets/js-koans-test-fail.gif" alt="Test FAIL" width="600">
+<script id="asciicast-hgo8MXS8bh0pCq8Ee4heN3zK5" src="https://asciinema.org/a/hgo8MXS8bh0pCq8Ee4heN3zK5.js" async></script>
 
 ### After you solved :
 
-<img src="./assets/js-koans-test-pass.gif" alt="Test PASS" width="600">
+<script id="asciicast-4UjOOJCYqSCgwsUpkuJD78F2J" src="https://asciinema.org/a/4UjOOJCYqSCgwsUpkuJD78F2J.js" async></script>
 
 ## Usage
 
 ### Prerequisite
 
-```shell
-$ npm i
-```
+- Install NodeJS version 14.17.0
+- Install NPM version >= 7.19.0
+- Install project dependencies :
+
+  ```shell
+  $ npm i
+  ```
 
 ### Play with tests
 
 Validate linting and tests:
 
 ```shell
-$ npm run validate
+$ npm run play
 ```
 
-Or simply execute tests:
-
-```shell
-$ npm test
-```
-
-By default, tests are executed through an ordered sequence specified in [test-sequence.json](https://raw.githubusercontent.com/openhoat/js-koans/master/test-sequence.json).
+By default, tests are executed from lower difficulty level to higher.
 
 Other scripts:
 
@@ -54,7 +52,7 @@ Other scripts:
 
 ## More information
 
-- Jest is used to implement and run the tests.
+- Jest is used to implement and run the tests with a custom runner and a custom reporter.
 - Babel is used seamlessly to support es2020
 - Solutions are not part of this project, but in another private one
 
@@ -66,22 +64,16 @@ The test sources have group tags decorations, so you can execute tests that matc
 
 Examples:
 
-- execute tests of group "easy" and tests of group "sync"
+- execute tests of difficulty level 1 and tests with tag "async"
 
   ```shell
-  $ npm test -- --group=easy --group=sync
+  $ npm run play -- --difficultyLevel=2 --tags=async
   ```
 
 - execute only the "factorial" test
 
   ```shell
-  $ npm test -- --group=sync -t="factorial"
-  ```
-
-- execute only the "supereasy" tests, showing each test usecase
-
-  ```shell
-  $ npm test -- --group=supereasy --verbose
+  $ npm run play -- --tags=sync -t="factorial"
   ```
 
 Enjoy!

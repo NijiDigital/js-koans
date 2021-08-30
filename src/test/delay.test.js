@@ -1,8 +1,8 @@
 import { basename } from 'path'
 
 /**
- * @group async
- * @group supereasy
+ * @difficultyLevel 1
+ * @tags async
  */
 
 const modName = basename(__filename, '.test.js')

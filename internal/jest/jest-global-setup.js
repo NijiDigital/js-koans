@@ -5,4 +5,4 @@ const setup = () => {
   }
 }
 
-export default setup
+module.exports = setup
