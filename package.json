@@ -4,8 +4,8 @@
   "description": "JavaScript koans to improve programmer skills",
   "main": "index.js",
   "scripts": {
-    "build": "babel -d ../built --delete-dir-on-start --relative src",
-    "clean": "rimraf built dist",
+    "build": "babel -d ../dist/built --delete-dir-on-start --relative src",
+    "clean": "rimraf dist",
     "lint": "eslint src",
     "prettier": "prettier -c 'src/**/*.js'",
     "test": "jest -i --reporters='default'",
