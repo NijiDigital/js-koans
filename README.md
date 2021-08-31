@@ -32,11 +32,17 @@ The way it works is very simple, all you have to do is to solve the failing test
 
 ### Play with tests
 
-```shell
-$ npm run play
-```
+Methodology : 
 
-Will execute tests and report koans results. 
+1. Run the test to see the error message
+    ```shell
+    $ npm run play
+    ```
+2. Watch the test source file to understand how to fulfill tests requirements
+3. Change the component source
+4. Run the test again and loop to (3) until it passes
+
+The "play" npm script will execute tests and report koans results.
 By default, tests are executed from lower difficulty level to higher.
 
 Other scripts:
@@ -73,6 +79,12 @@ Examples:
 
   ```shell
   $ npm run play -- --tags=sync -t="factorial"
+  ```
+
+- execute tests and stop on first failure
+
+  ```shell
+  $ npm run play -- -b
   ```
 
 Enjoy!
