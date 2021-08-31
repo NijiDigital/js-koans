@@ -1,7 +1,7 @@
 import { basename } from 'path'
 
 /**
- * @difficultyLevel 1
+ * @level 1
  * @tags sync
  */
 

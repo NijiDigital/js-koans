@@ -1,5 +1,5 @@
 /**
- * @difficultyLevel 1
+ * @level 1
  * @tags sync
  */
 

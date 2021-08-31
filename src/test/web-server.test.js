@@ -1,5 +1,5 @@
 /**
- * @difficultyLevel 3
+ * @level 3
  * @tags async
  */
 

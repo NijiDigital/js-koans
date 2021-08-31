@@ -32,12 +32,11 @@ The way it works is very simple, all you have to do is to solve the failing test
 
 ### Play with tests
 
-Validate linting and tests:
-
 ```shell
 $ npm run play
 ```
 
+Will execute tests and report koans results. 
 By default, tests are executed from lower difficulty level to higher.
 
 Other scripts:
@@ -46,7 +45,7 @@ Other scripts:
 - clean : clean the ./built and ./dist directories
 - lint : run linter
 - prettier : check sources format
-- test : run the tests
+- test : run the tests with default reporter
 - test:watch : run the tests in watch mode
 - validate : validate the main sources with linter and tests
 
@@ -67,7 +66,7 @@ Examples:
 - execute tests of difficulty level 1 and tests with tag "async"
 
   ```shell
-  $ npm run play -- --difficultyLevel=2 --tags=async
+  $ npm run play -- --level=2 --tags=async
   ```
 
 - execute only the "factorial" test
