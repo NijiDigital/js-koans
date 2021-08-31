@@ -1,4 +1,4 @@
-[![Workflow Status](https://github.com/openhoat/js-koans-solutions/actions/workflows/main.yml/badge.svg)](https://github.com/openhoat/js-koans/actions)
+[![Workflow Status](https://github.com/openhoat/js-koans-solutions/actions/workflows/main.yml/badge.svg)](https://github.com/openhoat/js-koans-solutions/actions)
 
 # JavaScript Koans
 
