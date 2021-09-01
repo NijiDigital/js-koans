@@ -24,6 +24,7 @@ describe('reactive', () => {
             button.listener()
           }
         },
+        removeEventListener: jest.fn(),
       }
       const output = { textContent: 'hello' }
       // When
@@ -35,6 +36,7 @@ describe('reactive', () => {
         expect.any(Function),
         undefined,
       )
+      expect(button.removeEventListener).not.toHaveBeenCalled()
       expect(button.listener).toBeTruthy()
       expect(output.textContent).toEqual('hello')
       // When
