@@ -1,5 +1,4 @@
 import { basename } from 'path'
-import { when } from 'jest-when'
 
 /**
  * @level 3
