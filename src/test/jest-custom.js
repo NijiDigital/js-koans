@@ -39,3 +39,5 @@ const expectExtension = {
 }
 
 expect.extend(expectExtension)
+
+global.XMLHttpRequest = require('xhr2')
