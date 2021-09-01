@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "express": "4.17.1",
-    "nanoid": "3.1.25"
+    "nanoid": "3.1.25",
+    "rxjs": "7.3.0"
   },
   "devDependencies": {
     "@babel/cli": "7.14.8",
@@ -39,6 +40,7 @@
     "jest": "27.0.6",
     "jest-docblock": "27.0.6",
     "jest-runner": "27.1.0",
+    "jest-when": "3.3.1",
     "prettier": "2.3.2",
     "rimraf": "3.0.2"
   }
