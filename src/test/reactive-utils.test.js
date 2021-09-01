@@ -2,16 +2,17 @@ import { basename } from 'path'
 import { ajax } from 'rxjs/ajax'
 
 /**
+ * @factor 2
  * @level 3
- * @tags async
+ * @tags async, reactive
  */
 
 const modName = basename(__filename, '.test.js')
 
-describe('reactive', () => {
-  let mod
+describe('reactive utils', () => {
+  let reactiveUtils
   beforeAll(async () => {
-    mod = await import(`../main/${modName}`)
+    ;({ default: reactiveUtils } = await import(`../main/${modName}`))
   })
   let button
   beforeEach(() => {
@@ -27,10 +28,61 @@ describe('reactive', () => {
       removeEventListener: jest.fn(),
     }
   })
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
+  describe('tenthSecondsClock$', () => {
+    let tenthSecondsClock$
+    beforeAll(async () => {
+      ;({ tenthSecondsClock$ } = reactiveUtils)
+    })
+    const delay = (ms) =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve()
+        }, ms)
+      })
+    test('should tick every tenth of seconds', async () => {
+      const tick = jest.fn()
+      const subscription = tenthSecondsClock$.subscribe(tick)
+      const unsubscriptionPromise = new Promise((resolve) => {
+        setTimeout(() => {
+          subscription.unsubscribe()
+          resolve()
+        }, 3 * 100)
+      })
+      await delay(10)
+      expect(tick).toHaveBeenCalledTimes(1)
+      await delay(100)
+      expect(tick).toHaveBeenCalledTimes(2)
+      await delay(100)
+      expect(tick).toHaveBeenCalledTimes(3)
+      await unsubscriptionPromise
+      expect(tick).toHaveBeenCalledTimes(3)
+    })
+    test('should call tick every tenth of seconds passing call counts as argument ', async () => {
+      const tick = jest.fn()
+      const subscription = tenthSecondsClock$.subscribe(tick)
+      const unsubscriptionPromise = new Promise((resolve) => {
+        setTimeout(() => {
+          subscription.unsubscribe()
+          resolve()
+        }, 3 * 100)
+      })
+      await delay(10)
+      expect(tick).toHaveBeenNthCalledWith(1, 1)
+      await delay(100)
+      expect(tick).toHaveBeenNthCalledWith(2, 2)
+      await delay(100)
+      expect(tick).toHaveBeenNthCalledWith(3, 3)
+      await unsubscriptionPromise
+      expect(tick).toHaveBeenCalledTimes(3)
+    })
+  })
   describe('changeOn3rdClick', () => {
     let changeOn3rdClick
     beforeAll(async () => {
-      ;({ changeOn3rdClick } = mod)
+      ;({ changeOn3rdClick } = reactiveUtils)
     })
     test('should change output text when button is clicked 3 times', () => {
       // Given
@@ -61,11 +113,11 @@ describe('reactive', () => {
       expect(output.textContent).toEqual('world!')
     })
   })
-  describe('crawl', () => {
+  describe('shortestRequest', () => {
     jest.setTimeout(10000)
     let shortestRequest
     beforeAll(async () => {
-      ;({ shortestRequest } = mod)
+      ;({ shortestRequest } = reactiveUtils)
     })
     test('should get response data of the shortest http request', async () => {
       // Given
@@ -75,9 +127,8 @@ describe('reactive', () => {
         { delay: 3, userId: 6 },
       ]
       // let index = 0
-      const doRequest = ({ delay, userId }) => {
-        return ajax(`https://reqres.in/api/users/${userId}?delay=${delay}`)
-      }
+      const doRequest = ({ delay, userId }) =>
+        ajax(`https://reqres.in/api/users/${userId}?delay=${delay}`)
       // When
       const promise = shortestRequest(button, doRequest, requests)
       requests.forEach(() => {
