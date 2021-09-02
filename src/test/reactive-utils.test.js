@@ -153,9 +153,16 @@ describe('reactive utils', () => {
     })
     test('should return reviews of movies given a director', async () => {
       // Given
+      const baseUrl = 'http://www.maciejtreder.com/asynchronous-javascript'
+      const restConfig = {
+        baseUrl,
+        directorsUri: `${baseUrl}/directors`,
+        moviesUri: (directorId) => `${baseUrl}/directors/${directorId}/movies`,
+        reviewsUri: (movieId) => `${baseUrl}/movies/${movieId}/reviews`,
+      }
       const directorName = 'Quentin Tarantino'
       // When
-      const result = await movieReviews(directorName)
+      const result = await movieReviews(restConfig, directorName)
       // Then
       expect(result).toEqual('Inglourious Basterds')
     })
