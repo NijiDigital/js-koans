@@ -80,7 +80,7 @@ describe('reactive utils', () => {
       expect(tick).toHaveBeenCalledTimes(3)
     })
   })
-  xdescribe('changeOn3rdClick', () => {
+  describe('changeOn3rdClick', () => {
     let changeOn3rdClick
     beforeAll(async () => {
       ;({ changeOn3rdClick } = reactiveUtils)
