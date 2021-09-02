@@ -42,7 +42,6 @@
     "jest-runner": "27.1.0",
     "jest-when": "3.3.1",
     "prettier": "2.3.2",
-    "rimraf": "3.0.2",
-    "xhr2": "0.2.1"
+    "rimraf": "3.0.2"
   }
 }

@@ -1,5 +1,6 @@
 import { basename } from 'path'
-import { ajax } from 'rxjs/ajax'
+
+import { ajax } from '../main/ajax'
 
 /**
  * @factor 2
@@ -79,7 +80,7 @@ describe('reactive utils', () => {
       expect(tick).toHaveBeenCalledTimes(3)
     })
   })
-  describe('changeOn3rdClick', () => {
+  xdescribe('changeOn3rdClick', () => {
     let changeOn3rdClick
     beforeAll(async () => {
       ;({ changeOn3rdClick } = reactiveUtils)
@@ -134,15 +135,29 @@ describe('reactive utils', () => {
       requests.forEach(() => {
         button.click()
       })
-      const response = await promise
+      const body = await promise
       // Then
-      expect(response).toEqual({
+      expect(body).toEqual({
         avatar: 'https://reqres.in/img/faces/3-image.jpg',
         email: 'emma.wong@reqres.in',
         first_name: 'Emma',
         id: 3,
         last_name: 'Wong',
       })
+    })
+  })
+  describe('movieReviews', () => {
+    let movieReviews
+    beforeAll(async () => {
+      ;({ movieReviews } = reactiveUtils)
+    })
+    test('should return reviews of movies given a director', async () => {
+      // Given
+      const directorName = 'Quentin Tarantino'
+      // When
+      const result = await movieReviews(directorName)
+      // Then
+      expect(result).toEqual('Inglourious Basterds')
     })
   })
 })
