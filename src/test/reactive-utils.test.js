@@ -127,7 +127,6 @@ describe('reactive utils', () => {
         { delay: 1, userId: 3 },
         { delay: 3, userId: 6 },
       ]
-      // let index = 0
       const doRequest = ({ delay, userId }) =>
         ajax(`https://reqres.in/api/users/${userId}?delay=${delay}`)
       // When
