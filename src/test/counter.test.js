@@ -11,23 +11,22 @@ describe('counter', () => {
   describe('counter factory', () => {
     let counterFactory
     beforeAll(async () => {
-      ;({ default: counterFactory } = await import(`../main/${modName}`))
+      counterFactory = await import(`../main/${modName}`).default
     })
     describe('increase counter', () => {
       let increaseCounter
       beforeAll(() => {
         increaseCounter = counterFactory()
       })
-      test('should increase counter value 20 times', () => {
-        Array.from(Array(20))
-          .map((__, index) => index + 1)
-          .forEach((expectedResult) => {
-            // When
-            const result = increaseCounter()
-            // Then
-            expect(result).toBe(expectedResult)
-          })
-      })
+      test.each(Array.from(Array(20)).map((__, index) => ({ expectedResult: index + 1 })))(
+        'should increase counter value and return $expectedResult',
+        ({ expectedResult }) => {
+          // When
+          const result = increaseCounter()
+          // Then
+          expect(result).toBe(expectedResult)
+        },
+      )
     })
   })
 })

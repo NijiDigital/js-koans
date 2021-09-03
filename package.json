@@ -9,7 +9,7 @@
     "lint": "eslint src",
     "prettier": "prettier -c 'src/**/*.js'",
     "test": "jest -i --reporters='default'",
-    "test:watch": "jest -i --watchAll",
+    "test:watch": "jest -i --reporters='default' --watchAll",
     "play": "jest -i",
     "validate": "npm run build && npm run lint && npm run test"
   },
