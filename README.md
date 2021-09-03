@@ -22,7 +22,7 @@ The way it works is very simple, all you have to do is to solve the failing test
 
 ### Prerequisite
 
-- Install NodeJS version >= 14
+- Install NodeJS version >= 14.15
 - Install NPM version >= 7
 - Install project dependencies :
 
