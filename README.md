@@ -55,6 +55,26 @@ Other scripts:
 - test:watch : run the tests in watch mode
 - validate : validate the main sources with linter and tests
 
+### Submit your code
+
+- Fork this repo
+- Clone this repo
+- Visit the "Actions" tab in your fork and enable workflows
+
+All the exercises are located in src/test folder and have a '.test' name suffix (ex: sum.test.js).
+
+You should place the solutions sources of exercises into src/main folder, with the same basename as the test file (ex: sum.js).
+
+To publish your changes, type:
+
+  ```shell
+  $ git add .
+  $ git commit -m "solutions to exercises"
+  $ git push origin master
+  ```
+
+And then create a Pull Request.
+
 ## More information
 
 - Jest is used to implement and run the tests with a custom runner and a custom reporter.
