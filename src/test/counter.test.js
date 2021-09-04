@@ -11,7 +11,7 @@ describe('counter', () => {
   describe('counter factory', () => {
     let counterFactory
     beforeAll(async () => {
-      counterFactory = await import(`../main/${modName}`).default
+      counterFactory = (await import(`../main/${modName}`)).default
     })
     describe('increase counter', () => {
       let increaseCounter
