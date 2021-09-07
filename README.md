@@ -99,7 +99,7 @@ Examples:
 - execute only the "factorial" test
 
   ```shell
-  $ npm run play -- --tags=sync -t="factorial"
+  $ npm run play -- -t="factorial"
   ```
 
 - execute tests and stop on first failure
