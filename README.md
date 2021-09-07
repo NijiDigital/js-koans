@@ -4,9 +4,9 @@
 
 The goal of this project is to improve skills of JavaScript programmers.
 
-It mainly contains some tests that describe some problems to solve and make assertions to check if the component behaves correctly.
+It mainly contains tests with problems to solve and assertions to check requirements of the component to implement.
 
-The way it works is very simple, all you have to do is to solve the failing tests.
+The way it works is very simple, all you have to do is to solve the failing tests, step by step.
 
 ## Story
 
@@ -50,6 +50,7 @@ Other scripts:
 - build : transpile the sources from ./src to ./built directory
 - clean : clean the ./built and ./dist directories
 - lint : run linter
+- play : run the tests with a custom reporter that displays koans score
 - prettier : check sources format
 - test : run the tests with default reporter
 - test:watch : run the tests in watch mode
