@@ -1,4 +1,5 @@
 import { basename } from 'path'
+import randomWords from 'random-words'
 
 /**
  * @level 1
@@ -17,6 +18,13 @@ describe('max length', () => {
       [13, ['Http Response', 'code', 'message']],
       [11, ['200', 'ANY_CODE', 'any message']],
       [17, ['404', 'ANY_ERROR', 'any error message']],
+      [
+        25,
+        [
+          ...randomWords(5),
+          Array.from(Array(25)).map((__, i) => String.fromCharCode('a'.charCodeAt(0) + i)),
+        ],
+      ],
     ])('should return a maximum length of %i given %p', (expectedResult, ar) => {
       // When
       const result = maxLength(ar)
