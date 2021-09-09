@@ -17,7 +17,7 @@ describe('truthy', () => {
     beforeAll(() => {
       ;({ getAllFalsies } = mod)
     })
-    test('should return a list of all possible truthy values', () => {
+    test('should return a list of all possible falsy values', () => {
       // When
       const result = getAllFalsies()
       // Then
