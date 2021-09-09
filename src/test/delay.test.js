@@ -12,26 +12,25 @@ describe('delay', () => {
   beforeAll(async () => {
     ;({ default: delay } = await import(`../main/${modName}`))
     expect(typeof delay).toBe('function')
-    jest.useFakeTimers()
   })
-  afterEach(() => {
-    jest.clearAllTimers()
-  })
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-  test('should wait for 20ms and resolve to true', async () => {
+  test('should wait for 20ms and resolve to true', (done) => {
     // Given
+    const durationMs = 200
+    const next = jest.fn()
     const start = Number(process.hrtime.bigint())
-    const durationMs = 20
     // When
     const promise = delay(durationMs, true)
-    jest.advanceTimersByTime(durationMs)
-    const result = await promise
     // Then
-    const elapsedMs = (Number(process.hrtime.bigint()) - start) / 1e6
-    jest.runOnlyPendingTimers()
-    expect(result).toBe(true)
-    expect(elapsedMs).toBeGreaterThanOrEqual(durationMs)
+    promise.then(next)
+    const timer = setInterval(() => {
+      const elapsedMs = (Number(process.hrtime.bigint()) - start) / 1e6
+      if (elapsedMs >= durationMs) {
+        expect(next).toHaveBeenNthCalledWith(1, true)
+        clearInterval(timer)
+        done()
+      } else {
+        expect(next).not.toHaveBeenCalled()
+      }
+    }, 10)
   })
 })
