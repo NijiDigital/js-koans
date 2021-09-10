@@ -12,31 +12,24 @@ describe('async await', () => {
   beforeAll(async () => {
     ;({ doAsync } = await import(`../main/${modName}`))
     expect(typeof doAsync).toBe('function')
-    jest.useFakeTimers()
-  })
-  afterEach(() => {
-    jest.clearAllTimers()
-  })
-  afterAll(() => {
-    jest.useRealTimers()
   })
   test('should resolve after 1s with given value', async () => {
     // When
-    const promise = doAsync('hello')
-    jest.advanceTimersByTime(1000)
-    const result = await promise
-    jest.runOnlyPendingTimers()
+    const promiseFactory = () => doAsync('hello')
     // Then
-    expect(result).toBe('hello')
+    await expect(promiseFactory).toFulfillAfter(1000, async (promise) => {
+      const result = await promise
+      expect(result).toBe('hello')
+    })
   })
   test('should reject after 1s with given error', async () => {
     // When
     const error = new Error('oops')
-    const promise = doAsync(undefined, error)
-    jest.advanceTimersByTime(1000)
+    const promiseFactory = () => doAsync(undefined, error)
     // Then
-    await expect(promise).toBeRejectedWith(error)
-    jest.runOnlyPendingTimers()
+    await expect(promiseFactory).toFulfillAfter(1000, async (promise) => {
+      await expect(promise).toBeRejectedWith(error)
+    })
   })
   test('should throw an error synchronously and log it', async () => {
     // When
@@ -51,11 +44,11 @@ describe('async await', () => {
     // When
     const error = new Error('oops')
     const log = jest.fn()
-    const promise = doAsync(undefined, error, false, log)
-    jest.advanceTimersByTime(1000)
+    const promiseFactory = () => doAsync(undefined, error, false, log)
     // Then
-    await expect(promise).toBeRejectedWith(error)
-    jest.runOnlyPendingTimers()
-    expect(log).toHaveBeenNthCalledWith(1, error.message)
+    await expect(promiseFactory).toFulfillAfter(1000, async (promise) => {
+      await expect(promise).toBeRejectedWith(error)
+      expect(log).toHaveBeenNthCalledWith(1, error.message)
+    })
   })
 })

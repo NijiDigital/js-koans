@@ -12,13 +12,6 @@ describe('factorial-async', () => {
   beforeAll(async () => {
     ;({ default: factorial } = await import(`../main/${modName}`))
     expect(typeof factorial).toBe('function')
-    jest.useFakeTimers()
-  })
-  afterEach(() => {
-    jest.clearAllTimers()
-  })
-  afterAll(() => {
-    jest.useRealTimers()
   })
   test.each([
     [2, 2],
@@ -39,16 +32,13 @@ describe('factorial-async', () => {
     [1, 1],
   ])('should wait for 20ms and resolve to %i given %i', async (expectedResult, x) => {
     // Given
-    const start = Number(process.hrtime.bigint())
     const durationMs = 20
     // When
-    const promise = factorial(x)
-    jest.advanceTimersByTime(durationMs)
-    const result = await promise
+    const promiseFactory = () => factorial(x)
     // Then
-    const elapsedMs = (Number(process.hrtime.bigint()) - start) / 1e6
-    jest.runOnlyPendingTimers()
-    expect(result).toBe(expectedResult)
-    expect(elapsedMs).toBeGreaterThanOrEqual(durationMs)
+    await expect(promiseFactory).toFulfillAfter(durationMs, async (promise) => {
+      const result = await promise
+      expect(result).toBe(expectedResult)
+    })
   })
 })
