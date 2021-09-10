@@ -10,27 +10,41 @@ const modName = basename(__filename, '.test.js')
 describe('delay', () => {
   let delay
   beforeAll(async () => {
+    jest.useFakeTimers('legacy')
     ;({ default: delay } = await import(`../main/${modName}`))
     expect(typeof delay).toBe('function')
   })
-  test('should wait for 20ms and resolve to true', (done) => {
+  beforeEach(() => {
+    jest.clearAllTimers()
+  })
+  afterAll(async () => {
+    jest.useRealTimers()
+  })
+  const waitNextTick = async () =>
+    new Promise((resolve) => {
+      process.nextTick(() => {
+        resolve()
+      })
+    })
+  test('should wait for 2s and resolve to true', async () => {
     // Given
-    const durationMs = 200
+    const durationMs = 2000
     const next = jest.fn()
-    const start = Number(process.hrtime.bigint())
     // When
     const promise = delay(durationMs, true)
     // Then
     promise.then(next)
-    const timer = setInterval(() => {
-      const elapsedMs = (Number(process.hrtime.bigint()) - start) / 1e6
-      if (elapsedMs >= durationMs) {
-        expect(next).toHaveBeenNthCalledWith(1, true)
-        clearInterval(timer)
-        done()
-      } else {
+    expect(next).not.toHaveBeenCalled()
+    const noTicks = 10
+    const tickDuration = durationMs / noTicks
+    for await (let index of Array.from(Array(noTicks)).map((__, i) => i + 1)) {
+      jest.advanceTimersByTime(tickDuration)
+      await waitNextTick()
+      if (index < noTicks) {
         expect(next).not.toHaveBeenCalled()
+      } else {
+        expect(next).toHaveBeenCalledTimes(1)
       }
-    }, 10)
+    }
   })
 })
