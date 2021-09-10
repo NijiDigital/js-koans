@@ -27,15 +27,6 @@ const expectExtension = {
     }
     return { message: () => 'promise is not rejected', pass: false }
   },
-  toHaveFailedWith: (fn, opt) => {
-    try {
-      fn()
-    } catch (err) {
-      handleError(err, opt)
-      return { message: () => 'function thrown expected error', pass: true }
-    }
-    return { message: () => 'function did not throw any error', pass: false }
-  },
   toFulfillAfter: async (promiseFactory, durationMs, resultExpectations) => {
     jest.useFakeTimers('legacy')
     const waitNextTick = async () =>
@@ -76,6 +67,15 @@ const expectExtension = {
     } finally {
       jest.useRealTimers()
     }
+  },
+  toHaveFailedWith: (fn, opt) => {
+    try {
+      fn()
+    } catch (err) {
+      handleError(err, opt)
+      return { message: () => 'function thrown expected error', pass: true }
+    }
+    return { message: () => 'function did not throw any error', pass: false }
   },
 }
 
