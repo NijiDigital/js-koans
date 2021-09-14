@@ -8,8 +8,8 @@
     "clean": "rimraf dist",
     "lint": "eslint src",
     "prettier": "prettier -c 'src/**/*.js'",
-    "test": "jest -i --reporters='default'",
-    "test:watch": "jest -i --reporters='default' --watchAll",
+    "test": "jest --reporters='default' -i",
+    "test:watch": "jest --watchAll --reporters='default' -i",
     "play": "jest -i",
     "validate": "npm run build && npm run lint && npm run test"
   },
