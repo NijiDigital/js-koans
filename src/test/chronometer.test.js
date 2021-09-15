@@ -8,13 +8,13 @@ import { basename } from 'path'
 const modName = basename(__filename, '.test.js')
 
 describe('chronometer', () => {
-  let Chronometer
+  let createChronometer
   let chronometer
   beforeAll(async () => {
-    ;({ Chronometer } = await import(`../main/${modName}`))
-    expect(typeof Chronometer).toBe('function')
+    ;({ createChronometer } = await import(`../main/${modName}`))
+    expect(typeof createChronometer).toBe('function')
     jest.useFakeTimers()
-    chronometer = new Chronometer()
+    chronometer = createChronometer()
   })
   afterEach(() => {
     jest.clearAllTimers()
