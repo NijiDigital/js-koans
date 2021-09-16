@@ -39,23 +39,20 @@ const expectExtension = {
       const next = jest.fn()
       const promise = promiseFactory()
       promise.then(next).catch(next)
-      if (next.mock.calls.length !== 0) {
-        return { message: () => 'function called too soon', pass: false }
-      }
-      const noTicks = 10
-      const tickDuration = durationMs / noTicks
-      for await (let index of Array.from(Array(noTicks)).map((__, i) => i + 1)) {
-        jest.advanceTimersByTime(tickDuration)
-        await waitNextTick()
-        if (index < noTicks) {
-          if (next.mock.calls.length !== 0) {
-            return { message: () => 'promise fulfilled too soon', pass: false }
-          }
-        } else {
-          if (next.mock.calls.length !== 1) {
-            return { message: () => 'promise fulfilled too late', pass: false }
-          }
+      let elapsedMs = 0
+      const tickMs = 10
+      do {
+        if (next.mock.calls.length !== 0) {
+          return { message: () => 'function called too soon', pass: false }
         }
+        jest.advanceTimersByTime(tickMs)
+        await waitNextTick()
+        elapsedMs += tickMs
+      } while (elapsedMs < durationMs)
+      jest.advanceTimersByTime(tickMs)
+      await waitNextTick()
+      if (next.mock.calls.length !== 1) {
+        return { message: () => 'promise fulfilled too late', pass: false }
       }
       if (resultExpectations) {
         await resultExpectations(promise)
