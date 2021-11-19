@@ -59,14 +59,13 @@ Other scripts:
 ### Submit your code
 
 - Fork this repo
-- Clone this repo
 - Visit the "Actions" tab in your fork and enable workflows
 
 All the exercises are located in src/test folder and have a '.test' name suffix (ex: sum.test.js).
 
 You should place the solutions sources of exercises into src/main folder, with the same basename as the test file (ex: sum.js).
 
-To publish your changes, type:
+To publish your changes to your repo, type:
 
   ```shell
   $ git add .
@@ -74,7 +73,7 @@ To publish your changes, type:
   $ git push origin master
   ```
 
-And then create a Pull Request.
+And then, eventually ask for a review (please do not create a pull request on this repo).
 
 ## More information
 
