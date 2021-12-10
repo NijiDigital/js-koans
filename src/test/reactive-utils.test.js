@@ -34,7 +34,7 @@ describe('reactive utils', () => {
   })
   describe('tenthSecondsClock$', () => {
     let tenthSecondsClock$
-    beforeAll(async () => {
+    beforeAll(() => {
       ;({ tenthSecondsClock$ } = reactiveUtils)
     })
     const delay = (ms) =>
@@ -82,7 +82,7 @@ describe('reactive utils', () => {
   })
   describe('changeOn3rdClick', () => {
     let changeOn3rdClick
-    beforeAll(async () => {
+    beforeAll(() => {
       ;({ changeOn3rdClick } = reactiveUtils)
     })
     test('should change output text when button is clicked 3 times', () => {
@@ -117,7 +117,7 @@ describe('reactive utils', () => {
   describe('shortestRequest', () => {
     jest.setTimeout(10000)
     let shortestRequest
-    beforeAll(async () => {
+    beforeAll(() => {
       ;({ shortestRequest } = reactiveUtils)
     })
     test('should get response data of the shortest http request', async () => {
@@ -147,7 +147,7 @@ describe('reactive utils', () => {
   })
   describe('movieReviews', () => {
     let movieReviews
-    beforeAll(async () => {
+    beforeAll(() => {
       ;({ movieReviews } = reactiveUtils)
     })
     test('should return reviews of movies given a director', async () => {
