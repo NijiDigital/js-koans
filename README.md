@@ -1,5 +1,3 @@
-[![Workflow Status](https://github.com/NijiDigital/js-koans-solutions/actions/workflows/main.yml/badge.svg)](https://github.com/NijiDigital/js-koans-solutions/actions)
-
 # JavaScript Koans
 
 The goal of this project is to improve skills of JavaScript programmers.
